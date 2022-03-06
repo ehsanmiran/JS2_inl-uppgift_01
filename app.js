@@ -2,7 +2,7 @@ const express = require('express');     //hämta hem express.
 const app = express();                  //initialisera express i en variabel och kör den som en function.
 const cors = require('cors');
 
-const productController = require('./controllers/productController')
+const productController = require('./controllers/productController');
 
 // MIDDLEWARE
 

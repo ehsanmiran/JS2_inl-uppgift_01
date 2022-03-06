@@ -104,6 +104,61 @@ exports.createProduct = (req, res) => {
 
 
 
+exports.updateProduct = (req, res) => {
+
+  Product.exists({ _id: req.params.id }, (err, result) => {
+
+    if(err) {
+      return res.status(400).json({
+        statusCode: 400,
+        status: false,
+        message: 'You have made a bad request.',
+      })
+    }
+
+    if(!result) {
+      return res.status(404).json({
+        statusCode: 404,
+        status: false,
+        message: 'Product is not found.',
+      })
+    }
+
+    Product.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
+      .then(data => {
+        res.status(200).json({
+          statusCode: 200,
+          status: true,
+          message: 'Product updated successfully.',
+          data
+        })
+      })
+      .catch(err => {
+        if(err.code === 11000) {
+          return res.status(400).json({
+            statusCode: 400,
+            status: false,
+            message: 'A product with that name is already exists.',
+            err
+          })
+        }
+
+
+        res.status(500).json({
+          statusCode: 500,
+          status: false,
+          message: 'Could not update product.',
+          err
+        })
+
+      })
+
+  })
+
+}
+
+
+
 
 exports.deleteProduct = (req, res) => {
 
