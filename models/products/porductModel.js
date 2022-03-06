@@ -112,7 +112,7 @@ exports.updateProduct = (req, res) => {
       return res.status(400).json({
         statusCode: 400,
         status: false,
-        message: 'You have made a bad request.',
+        message: 'You have made a bad request'
       })
     }
 
@@ -120,7 +120,7 @@ exports.updateProduct = (req, res) => {
       return res.status(404).json({
         statusCode: 404,
         status: false,
-        message: 'Product is not found.',
+        message: 'Product is not found'
       })
     }
 
@@ -129,7 +129,7 @@ exports.updateProduct = (req, res) => {
         res.status(200).json({
           statusCode: 200,
           status: true,
-          message: 'Product updated successfully.',
+          message: 'Product updated successfully',
           data
         })
       })
@@ -138,7 +138,7 @@ exports.updateProduct = (req, res) => {
           return res.status(400).json({
             statusCode: 400,
             status: false,
-            message: 'A product with that name is already exists.',
+            message: 'A product with that name is already exists',
             err
           })
         }
@@ -147,7 +147,7 @@ exports.updateProduct = (req, res) => {
         res.status(500).json({
           statusCode: 500,
           status: false,
-          message: 'Could not update product.',
+          message: 'Could not update product',
           err
         })
 
