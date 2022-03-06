@@ -8,7 +8,7 @@ router.get('/:id', productModel.getProductByID);                       // Get on
 
 router.post('/', productModel.createProduct);                          // Create a new product
 
-// router.patch('/:id', porductModel.updateProduct);                      // Update a product - we could use "put" instead as well.
+router.put('/:id', productModel.updateProduct);                        // Update a product - we could use "put" instead as well.
 
 router.delete('/:id', productModel.deleteProduct);                     // Delete a product
 
